@@ -101,6 +101,22 @@ int main(int argc,char* argv[])
 	    
 	}
     
+    set<string> genes_toRemove;
     
+    tr(gene_mutatedSamples,it)
+	{
+	    // here it->first refers to gene
+	    if(gene_mutatedSamples[it->first].size() < mAS_perGene)
+		genes_toRemove.insert(it->first);
+	}
+    
+    tr(genes_toRemove,it)
+	{
+	    //*it is a gene
+	    gene_mutatedSamples.erase(*it);
+	    genes.erase(find(all(genes),*it));
+	}
+    
+        
     return 0;
 }
