@@ -66,8 +66,9 @@ int main(int argc,char* argv[])
 
     while(!sample_mut_f.eof())
 	{
-	    string gene;
 	    getline(sample_mut_f,line);
+	    if(line.empty())
+		break;
 	    vsplit(line,vv);
 	    sampleID = vv[0];
 	    all_samples.insert(sampleID);
@@ -75,7 +76,7 @@ int main(int argc,char* argv[])
 	    
 	    for (int i = 0; i < (sz(vv) - 1); ++i)
 		{
-		    gene = vv[i+1];
+		    string gene = vv[i+1];
 		    
 		    if(cpresent(genes,gene))
 			{
