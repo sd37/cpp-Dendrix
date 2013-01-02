@@ -14,4 +14,4 @@
 using namespace std;
 
 typedef map<string,set<string> > DictStringSet;
-
+typedef map<string,double> DictStringDouble;

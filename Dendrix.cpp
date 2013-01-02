@@ -90,5 +90,17 @@ int main(int argc,char* argv[])
 	}
     
     sample_mut_f.close();
+    
+    DictStringDouble sample_numMut;
+    
+    tr(sample_mutatedGenes,it)
+	{
+	    // it->first refers to the sampleID or PatientID
+	    unsigned tmp_numMut = sample_mutatedGenes[it->first].size();
+	    sample_numMut[it->first] = (double)tmp_numMut;
+	    
+	}
+    
+    
     return 0;
 }
