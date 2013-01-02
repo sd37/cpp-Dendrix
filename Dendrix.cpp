@@ -139,6 +139,15 @@ int main(int argc,char* argv[])
     for (int exp_n = 0; exp_n < num_exper; ++exp_n)
        	{
 	    random_samples(genes,K,solution);
+	    set<string> genes_set(all(genes));
+	    int avg = 0;
+	    DictSetInt num_visits;
+	    
+	    for (int itera = 0; itera < num_iterations; ++itera)
+		{
+		    string next_gene = random_sample_sel(genes_set);
+		    
+		}
 	}
     return 0;
 }

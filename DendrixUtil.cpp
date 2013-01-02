@@ -39,3 +39,14 @@ void random_samples(list<string> g,int K, list<string> &sol)
       		} 
 	}
 }
+
+string random_sample_sel(const set<string> &g)
+{
+    vector<string> gg(all(g));
+    
+    srand((unsigned)time(0));
+    random_shuffle(all(gg));
+    
+    return gg[0];
+}
+
