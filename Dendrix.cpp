@@ -60,7 +60,7 @@ int main(int argc,char* argv[])
     gene_mutatedSamples.erase("");
     analyzed_genes_file.close();
     
-    printf("Loading Mutations...");
+    printf("Loading Mutations...\n");
 
     vector<string> vv;
 
@@ -117,6 +117,20 @@ int main(int argc,char* argv[])
 	    genes.erase(find(all(genes),*it));
 	}
     
-        
+    printf("Number of genes:%u\n",genes.size());
+       
+    printf("Cleaning sample_mutatedGenes Table...\n");
+    
+    tr(sample_mutatedGenes,it)
+	{
+	    //here it->first refers to sampleID
+	    tr(genes_toRemove,gene)
+		{
+		    if(present(sample_mutatedGenes[it->first] ,*gene))
+			sample_mutatedGenes[it->first].erase(*gene);
+		}
+	    
+	}
+    
     return 0;
 }
