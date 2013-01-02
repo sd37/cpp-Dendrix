@@ -132,5 +132,13 @@ int main(int argc,char* argv[])
 	    
 	}
     
+    /* main algo starts here */
+    srand((unsigned)time(0)); 
+    list<string>solution;
+    
+    for (int exp_n = 0; exp_n < num_exper; ++exp_n)
+       	{
+	    random_samples(genes,K,solution);
+	}
     return 0;
 }

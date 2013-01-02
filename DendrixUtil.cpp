@@ -19,3 +19,23 @@ void vsplit(string line,vector<string>&v)
 	v.push_back(buf);
 
 }
+
+void random_samples(list<string> g,int K, list<string> &sol)
+{
+    vector<string> gg(all(g));
+
+    srand((unsigned)time(0));
+    random_shuffle(all(gg));
+
+    int count = 0;
+    tr(gg,it)
+	{
+	    if(count == K)
+		break;
+	    if(!cpresent(sol,*it))
+		{
+		    sol.push_back(*it);
+		    count++;
+      		} 
+	}
+}
