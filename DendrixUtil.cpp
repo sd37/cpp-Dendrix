@@ -50,3 +50,21 @@ string random_sample_sel(const set<string> &g)
     return gg[0];
 }
 
+vector<string> convertListToVector(const list<string> &l)
+{
+    vector<string> v(all(l));
+    return v;
+}
+
+set<string> convertVectortoSet(const vector<string> &v)
+{
+    set<string> s(all(v));
+    return s;
+}
+
+set<string> convertListToSet(const list<string> &l)
+{
+    vector<string> v;
+    v = convertListToVector(l);
+    return convertVectortoSet(v);
+}

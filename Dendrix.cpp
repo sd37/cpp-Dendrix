@@ -135,7 +135,8 @@ int main(int argc,char* argv[])
     /* main algo starts here */ 
     list<string>solution;
     string to_exchange;
-    
+    set<string> next_solution;
+
     for (int exp_n = 0; exp_n < num_exper; ++exp_n)
        	{
 	    random_samples(genes,K,solution);
@@ -154,8 +155,26 @@ int main(int argc,char* argv[])
 			    list<string> s;
 			    random_samples(solution,1,s);
 			    to_exchange = s.front();
-			
 			}
+		    list<string> to_exchangeList;
+		    list<string> next_geneList;
+		    
+		    to_exchangeList.push_back(to_exchange);
+		    next_geneList.push_back(next_gene);
+		    
+		    set<string> solution_Set ;
+		    solution_Set = convertListToSet(solution); 
+		    
+		    set<string> to_exchange_Set;
+		    to_exchange_Set = convertListToSet(to_exchangeList);
+		    
+		    set<string> next_gene_Set;
+		    next_gene_Set = convertListToSet(next_geneList);
+		    
+		    set_difference(all(solution_Set),all(to_exchange_Set),inserter(next_solution,next_solution.end()));	   
+		    set_union(all(next_solution),all(next_gene_Set),inserter(next_solution,next_solution.end()));
+		    
+		    
 		}
 	}
     return 0;
