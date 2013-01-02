@@ -132,9 +132,9 @@ int main(int argc,char* argv[])
 	    
 	}
     
-    /* main algo starts here */
-    srand((unsigned)time(0)); 
+    /* main algo starts here */ 
     list<string>solution;
+    string to_exchange;
     
     for (int exp_n = 0; exp_n < num_exper; ++exp_n)
        	{
@@ -147,6 +147,15 @@ int main(int argc,char* argv[])
 		{
 		    string next_gene = random_sample_sel(genes_set);
 		    
+		    if(cpresent(solution,next_gene))
+		       to_exchange = next_gene;
+		    else
+			{
+			    list<string> s;
+			    random_samples(solution,1,s);
+			    to_exchange = s.front();
+			
+			}
 		}
 	}
     return 0;
