@@ -176,6 +176,9 @@ int main(int argc,char* argv[])
 		    
 		    double expon = measure(next_solution,solution_Set,sample_mutatedGenes);
 		    
+		    if(expon > 0)
+			expon = 0;
+		    
 		    double prob = min(1.0,exp(expon));
 		    double coin = random01();
 			
@@ -185,18 +188,10 @@ int main(int argc,char* argv[])
 		    if((itera + 1) % step_length == 0)
 			{
 			    set<string> frozen_tmp(all(solution_Set));
-			    
-			    /*if(cpresent(num_visits,frozen_tmp))
-				{
-				    //num_visits.insert(pair<set<string>,int>(frozen_tmp,0));   			   
-				}
-			    num_visits[solution_Set] += 1;
-			    */
-			    cNumVisits(num_visits,frozen_tmp,solution_Set);
+      			    cNumVisits(num_visits,frozen_tmp,solution_Set);
       			}
 		}
-	    
-	    printf("");  
+	     
 	}
     return 0;
 }

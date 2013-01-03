@@ -1,6 +1,6 @@
 #include "util.h"
 
-void lsplit(string line,list<string>&v)
+void lsplit(string line,list<string>& v)
 {
     string buf;
     stringstream ss(line);
@@ -95,7 +95,7 @@ double measure(set<string>& genes_collection1,set<string>& genes_collection2,Dic
 	    //it->first is the sampleID
 	    genes_in_sample = sample_mutatedGenes[it->first];
 
-	    set_union(all(genes_collection1),all(genes_in_sample),inserter(inside_genes1,inside_genes1.end()));
+	    set_intersection(all(genes_collection1),all(genes_in_sample),inserter(inside_genes1,inside_genes1.end()));
 	    
 	    if(inside_genes1.size() > 0)
 		out1 += 1;
@@ -103,7 +103,7 @@ double measure(set<string>& genes_collection1,set<string>& genes_collection2,Dic
 	    num_ig1 = (int)inside_genes1.size();
 	    inside1 += num_ig1;
 
-	    set_union(all(genes_collection2),all(genes_in_sample),inserter(inside_genes2,inside_genes2.end()));
+	    set_intersection(all(genes_collection2),all(genes_in_sample),inserter(inside_genes2,inside_genes2.end()));
 	    
 	    if(inside_genes2.size() > 0)
 		out2 += 1;
