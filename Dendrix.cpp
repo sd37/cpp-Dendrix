@@ -6,6 +6,8 @@ int main(int argc,char* argv[])
     DictStringSet gene_mutatedSamples;
     ifstream     sample_mut_f;
     ifstream     analyzed_genes_file;
+    ofstream     most_visited_file;
+    ofstream     highest_weight_file;
     int K;
     int mAS_perGene;
     int num_iterations;
@@ -136,13 +138,15 @@ int main(int argc,char* argv[])
     list<string>solution;
     string to_exchange;
     set<string> next_solution;
-
+    DictSetInt num_visits;
+    double expon;
+    list<pair<int,set<string> > > to_sort;
+    
     for (int exp_n = 0; exp_n < num_exper; ++exp_n)
        	{
 	    random_samples(genes,K,solution);
 	    set<string> genes_set(all(genes));
 	    int avg = 0;
-	    DictSetInt num_visits;
 	    
 	    for (int itera = 0; itera < num_iterations; ++itera)
 		{
@@ -174,7 +178,7 @@ int main(int argc,char* argv[])
 		    set_difference(all(solution_Set),all(to_exchange_Set),inserter(next_solution,next_solution.end()));	   
 		    set_union(all(next_solution),all(next_gene_Set),inserter(next_solution,next_solution.end()));
 		    
-		    double expon = measure(next_solution,solution_Set,sample_mutatedGenes);
+		    expon = measure(next_solution,solution_Set,sample_mutatedGenes);
 		    
 		    if(expon > 0)
 			expon = 0;
@@ -191,7 +195,11 @@ int main(int argc,char* argv[])
       			    cNumVisits(num_visits,frozen_tmp,solution_Set);
       			}
 		}
-	     
+	    
+	    to_sort.clear();
+	    char filename1[1000];
+	    sprintf(filename1,"sets_frequencyOrder_experiment%d.txt",exp_n);
+	    most_visited_file.open(filename1);
 	}
     return 0;
 }

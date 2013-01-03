@@ -25,3 +25,4 @@ typedef map<string,set<string> > DictStringSet;
 typedef map<string,double> DictStringDouble;
 typedef map<const set<string>,int> DictSetInt;
 double random01();
+string  integerToString(int x);

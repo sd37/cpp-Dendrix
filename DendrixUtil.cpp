@@ -125,12 +125,22 @@ double random01()
 }
 
 void cNumVisits(DictSetInt &num_visits,set<string> &frozen_tmp,const set<string> &solution_Set)
-{
+{   
+    
     if(!present(num_visits,solution_Set))
       {
 	  num_visits.insert(pair<set<string>,int>(solution_Set,0));   			   
       }
-    num_visits[solution_Set] += 1;
-    
-    
+    num_visits[solution_Set]++;   
 }
+
+string integerToString(int x)
+{
+    string result;   
+    ostringstream convert;
+    convert << x;    
+    return  convert.str();
+
+}
+
+
