@@ -181,8 +181,22 @@ int main(int argc,char* argv[])
 			
 		    if(coin <= prob)
 			solution_Set = next_solution;
-
+		    
+		    if((itera + 1) % step_length == 0)
+			{
+			    set<string> frozen_tmp(all(solution_Set));
+			    
+			    /*if(cpresent(num_visits,frozen_tmp))
+				{
+				    //num_visits.insert(pair<set<string>,int>(frozen_tmp,0));   			   
+				}
+			    num_visits[solution_Set] += 1;
+			    */
+			    cNumVisits(num_visits,frozen_tmp,solution_Set);
+      			}
 		}
+	    
+	    printf("");  
 	}
     return 0;
 }
