@@ -12,6 +12,7 @@
 #include <set>
 #include <algorithm>
 #include <ctime>
+#include <cmath>
 using namespace std;
 
 #define all(c) (c).begin(),(c).end()
@@ -23,3 +24,4 @@ using namespace std;
 typedef map<string,set<string> > DictStringSet;
 typedef map<string,double> DictStringDouble;
 typedef map<set<string>,int> DictSetInt;
+double random01();

@@ -174,7 +174,14 @@ int main(int argc,char* argv[])
 		    set_difference(all(solution_Set),all(to_exchange_Set),inserter(next_solution,next_solution.end()));	   
 		    set_union(all(next_solution),all(next_gene_Set),inserter(next_solution,next_solution.end()));
 		    
+		    double expon = measure(next_solution,solution_Set,sample_mutatedGenes);
 		    
+		    double prob = min(1.0,exp(expon));
+		    double coin = random01();
+			
+		    if(coin <= prob)
+			solution_Set = next_solution;
+
 		}
 	}
     return 0;
