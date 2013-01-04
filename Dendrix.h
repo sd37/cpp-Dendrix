@@ -16,3 +16,4 @@ set<string> convertListToSet(const list<string> &l);
 double measure(set<string>& genes_collection1,set<string>& genes_collection2,DictStringSet& sample_mutatedGenes);
 
 string accessList(list<string> &l,int x);
+string print_hi_w_file(list<pair<int,pair<string,string> > > &to_sort_weight,int x);

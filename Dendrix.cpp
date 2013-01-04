@@ -247,6 +247,18 @@ int main(int argc,char* argv[])
 	    most_visited_file.close();
 	    
 	    //only the 1000 sets with highest weights are reported
+	    
+	    to_sort_weight.sort();
+	    char filename2[1000];
+	    sprintf(filename2,"sets_weightOrder_experiment%d.txt",exp_n);
+	    highest_weight_file.open(filename2);
+	    
+	    for (int i = 0; i < min((int)to_sort_weight.size(),1000); ++i)
+		{
+		    highest_weight_file << print_hi_w_file(to_sort_weight,i+1);
+		}
+
+	    highest_weight_file.close();
 	}
     return 0;
 }

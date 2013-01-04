@@ -189,3 +189,16 @@ string accessList(list<string> &l,int x)
     
     return "";
 }
+
+string print_hi_w_file(list<pair<int,pair<string,string> > > &to_sort_weight,int x)
+{
+    int i = 0;
+    string result("");
+    
+    tr(to_sort_weight,it)
+	{
+	    if(i == x)
+		return result + "\t" +integerToString(it->first) + "\t" +(it->second).first + (it->second).second + "\n";
+	}
+    return "";
+}
