@@ -14,3 +14,5 @@ set<string> convertVectortoSet(const vector<string> &v);
 set<string> convertListToSet(const list<string> &l);
 
 double measure(set<string>& genes_collection1,set<string>& genes_collection2,DictStringSet& sample_mutatedGenes);
+
+string accessList(list<string> &l,int x);

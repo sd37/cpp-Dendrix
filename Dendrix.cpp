@@ -205,7 +205,7 @@ int main(int argc,char* argv[])
 		{
 		    to_sort.push_back(make_pair(ft->second,ft->first));
 		}
-	    
+	    to_sort.sort();
 	    most_visited_file << "Total visited: " << to_sort.size() << "\n";
 	    
 	    //only the most 1000 most sampled sets are reported			    
@@ -213,12 +213,40 @@ int main(int argc,char* argv[])
 		{
 		    if( i < 1000)
 			most_visited_file << rev_access0(to_sort ,i + 1) << "\t";
-		    list<string> genes_list(all(rev_access1(to_sort,i+1)));
-		    genes_list.sort();
-		    
+		    list<string> genes_list;
+		    set<string> tmp_set = rev_access1(to_sort,i+1);
+		    copy(all(tmp_set),back_inserter(genes_list));
+      		    genes_list.sort();
+		    set<string> tmp_tot;
 		    int sum = 0;
 		    string tmp_str("");
+						    
+		    for (int  j = 0; i < genes_list.size() ; ++i)
+			{
+			    
+			    tmp_tot.insert(all(gene_mutatedSamples[accessList(genes_list,j)]));
+			    sum += gene_mutatedSamples[accessList(genes_list,j)].size();
+			    tmp_str += tmp_str + accessList(genes_list,j) + "\t";
+			    
+			    if(i < 1000)
+				{
+				    most_visited_file << accessList(genes_list,j) + "\t";
+				}
+			    
+			}
+		
+		    int tmp_weight = 2 * tmp_tot.size() - sum;
+		    to_sort_weight.push_back(make_pair(tmp_weight,make_pair(tmp_str,integerToString(rev_access0(to_sort,i+1)))));
+		    
+		    if(i < 1000)
+			{
+			    most_visited_file << tmp_weight << "\n";
+			}
+		    
 		}
+	    most_visited_file.close();
+	    
+	    //only the 1000 sets with highest weights are reported
 	}
     return 0;
 }

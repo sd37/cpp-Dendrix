@@ -176,3 +176,16 @@ set<string> rev_access1(list<pair<int,set<string> > > &l, int n)
     return set<string>();
 
 }
+
+string accessList(list<string> &l,int x)
+{
+    int i = 0;
+    tr(l,it)
+	{
+	    if(i == x)
+		return *it;
+	    i++;
+	}
+    
+    return "";
+}
