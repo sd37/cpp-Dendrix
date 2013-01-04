@@ -143,4 +143,36 @@ string integerToString(int x)
 
 }
 
+int rev_access0(list<pair<int,set<string> > > &l, int n)
+{
+    list<pair<int,set<string> > >::reverse_iterator rit;
+    int i = 1;
+    
+    
+	
+    for (rit = l.rbegin(); rit != l.rend(); ++rit,++i)
+	{
+	    if(i == n)
+		return (*rit).first;
+	    i++;
+	}
+    return -1;
 
+}
+
+set<string> rev_access1(list<pair<int,set<string> > > &l, int n)
+{
+    list<pair<int,set<string> > >::reverse_iterator rit;
+    int i = 1;
+    
+    
+	
+    for (rit = l.rbegin(); rit != l.rend(); ++rit,++i)
+	{
+	    if(i == n)
+		return (*rit).second;
+	    i++;
+	}
+    return set<string>();
+
+}

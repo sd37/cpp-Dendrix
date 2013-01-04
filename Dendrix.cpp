@@ -141,6 +141,7 @@ int main(int argc,char* argv[])
     DictSetInt num_visits;
     double expon;
     list<pair<int,set<string> > > to_sort;
+    list<pair<int,pair<string,string> > > to_sort_weight;
     
     for (int exp_n = 0; exp_n < num_exper; ++exp_n)
        	{
@@ -200,6 +201,24 @@ int main(int argc,char* argv[])
 	    char filename1[1000];
 	    sprintf(filename1,"sets_frequencyOrder_experiment%d.txt",exp_n);
 	    most_visited_file.open(filename1);
+	    tr(num_visits,ft)
+		{
+		    to_sort.push_back(make_pair(ft->second,ft->first));
+		}
+	    
+	    most_visited_file << "Total visited: " << to_sort.size() << "\n";
+	    
+	    //only the most 1000 most sampled sets are reported			    
+	    for (int i = 0; i < to_sort.size(); ++i)
+		{
+		    if( i < 1000)
+			most_visited_file << rev_access0(to_sort ,i + 1) << "\t";
+		    list<string> genes_list(all(rev_access1(to_sort,i+1)));
+		    genes_list.sort();
+		    
+		    int sum = 0;
+		    string tmp_str("");
+		}
 	}
     return 0;
 }
