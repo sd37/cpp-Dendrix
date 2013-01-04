@@ -221,12 +221,12 @@ int main(int argc,char* argv[])
 		    int sum = 0;
 		    string tmp_str("");
 						    
-		    for (int  j = 0; i < genes_list.size() ; ++i)
+		    for (int  j = 0; j < genes_list.size() ; ++j)
 			{
 			    
 			    tmp_tot.insert(all(gene_mutatedSamples[accessList(genes_list,j)]));
 			    sum += gene_mutatedSamples[accessList(genes_list,j)].size();
-			    tmp_str += tmp_str + accessList(genes_list,j) + "\t";
+			    tmp_str = tmp_str + accessList(genes_list,j) + "\t";
 			    
 			    if(i < 1000)
 				{
