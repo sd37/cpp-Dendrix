@@ -47,7 +47,7 @@ string random_sample_sel(const set<string> &g)
     srand((unsigned)time(0));
     random_shuffle(all(gg));
     
-    return gg[0];
+    return gg[rand() % (gg.size())];
 }
 
 vector<string> convertListToVector(const list<string> &l)
