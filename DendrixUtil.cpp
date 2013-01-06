@@ -22,23 +22,22 @@ void vsplit(string line,vector<string>&v)
 
 void random_samples(list<string> g,int K, list<string> &sol)
 {
+    //vector<string> gg(all(g));
     vector<string> gg(all(g));
-
-    srand((unsigned)time(0));
     random_shuffle(all(gg));
-
-    int count = 0;
-    tr(gg,it)
+    vector<string> s(K);
+    srand((unsigned)time(0));
+    random_sample_n(all(gg),s.begin(),K);
+    
+    for(int i = 0; i < K; i++)
 	{
-	    if(count == K)
-		break;
-	    if(!cpresent(sol,*it))
-		{
-		    sol.push_back(*it);
-		    count++;
-      		} 
+	    sol.push_back(s[i]);
 	}
+    
+    printf("over\n") ;   
 }
+
+
 
 string random_sample_sel(const set<string> &g)
 {

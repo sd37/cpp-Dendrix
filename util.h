@@ -14,6 +14,7 @@
 #include <ctime>
 #include <cmath>
 #include <utility>
+#include <ext/algorithm>
 
 using namespace std;
 
