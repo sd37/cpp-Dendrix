@@ -195,6 +195,7 @@ int main(int argc,char* argv[])
 			    set<string> frozen_tmp(all(solution_Set));
       			    cNumVisits(num_visits,frozen_tmp,solution_Set);
       			}
+		    next_solution.clear();
 		}
 	    
 	    to_sort.clear();
