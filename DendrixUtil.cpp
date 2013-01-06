@@ -28,13 +28,13 @@ void random_samples(list<string> g,int K, list<string> &sol)
     vector<string> s(K);
     srand((unsigned)time(0));
     random_sample_n(all(gg),s.begin(),K);
-    
+    //random_shuffle(all(s));
     for(int i = 0; i < K; i++)
 	{
 	    sol.push_back(s[i]);
 	}
-    
-    printf("over\n") ;   
+   
+
 }
 
 

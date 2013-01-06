@@ -1,3 +1,0 @@
-Total visited: 2
-2	ERBB2	FGFR2	ROS1	1
--1	0
