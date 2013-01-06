@@ -149,7 +149,7 @@ int rev_access0(list<pair<int,set<string> > > &l, int n)
     
     
 	
-    for (rit = l.rbegin(); rit != l.rend(); ++rit,++i)
+    for (rit = l.rbegin(); rit != l.rend(); ++rit)
 	{
 	    if(i == n)
 		return (*rit).first;
@@ -166,7 +166,7 @@ set<string> rev_access1(list<pair<int,set<string> > > &l, int n)
     
     
 	
-    for (rit = l.rbegin(); rit != l.rend(); ++rit,++i)
+    for (rit = l.rbegin(); rit != l.rend(); ++rit)
 	{
 	    if(i == n)
 		return (*rit).second;
